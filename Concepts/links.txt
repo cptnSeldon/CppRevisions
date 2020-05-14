@@ -1,0 +1,27 @@
+Liens utiles :
+
+    //Définitions
+    - https://fr.wikipedia.org/wiki/Sucre_syntaxique
+
+    //Chapitre 01
+    - https://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp4_PointerReference.html
+
+    //Chapitre 02
+    - https://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp3_OOP.html
+
+    //Chapitre 03
+    - https://cpp.developpez.com/faq/cpp/?page=La-surcharge-d-operateurs#Qu-est-ce-que-la-surcharge-d-operateur
+    - https://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp7_OperatorOverloading.html
+
+    //Chapitre 04
+    - https://en.cppreference.com/w/cpp/language/abstract_class
+    - https://en.cppreference.com/w/cpp/language/virtual
+
+    //Chapitre 05
+    - https://h-deb.clg.qc.ca/Sujets/Divers--cplusplus/CPP--Casts-ISO.html
+
+    //Chapitre 06
+    - https://www.codementor.io/@codementorteam/a-comprehensive-guide-to-implementation-of-singly-linked-list-using-c_plus_plus-ondlm5azr
+
+    //Chapitre 07
+    - https://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp8_Template.html

@@ -1,0 +1,110 @@
+-------------------------------------------------------
+.                           C++                       .
+-------------------------------------------------------
+
+> Principes de la Programmation Orientée Objet
+
+    > On commence par établir le plan d'un objet                                                    (CLASSE)
+
+        > Description des caractéristiques propres à l'objet                                        (ATTRIBUTS DE CLASSE)
+
+        > Description de ce qu'il peut faire
+
+            > On pourra modifier la valeur des caractéristiques de chaque objet créé    *           (MUTATEURS)
+                lors de la création de l'objet ou après sa création
+
+            > On pourra récupérer la valeur des caractéristiques de chaque objet créé   *           (ACCESSEURS)
+                lors de la création de l'objet ou après sa création
+
+                * si on reçoit la permission de pouvoir le faire !                                  (PORTÉE)
+
+            > On pourra effectuer des opérations sur l'objet en utilisant ses caractéristique       (FONCTIONS DE CLASSE)
+
+    > On peut ensuite réutiliser le plan pour créer des objets concrets et uniques                  (INSTANCIATION)
+
+        > La création d'un objet se fait à l'aide d'un constructeur qui est définie                 (CONSTRUCTEUR)
+            à l'intérieur de chaque classe
+
+        > La création de l'objet peut se faire de deux manières :
+
+            > Statique : l'allocation se fait sur la pile
+
+            > Dynamique : l'allocation se fait sur le tas
+                (avantage : rapidité de passage de paramètre par adresse ou référence)
+
+    > Chaque objet créé est supprimé une fois qu'on a fini de l'utiliser                            (DESTRUCTEUR)
+
+----------------------------------------------------------------------------------------------------
+    Si on reprend l'exemple d'un Cercle :
+
+        - Pour définir un Cercle, on a besoin de savoir quel est son rayon et son centre.           (définition des attributs)
+
+        - Si on définit une valeur pour chaque caractéristique du Cercle, on pourra :               (définition des fonctions)
+
+            - le dessiner, calculer son aire et son périmètre, le transformer, le déplacer
+            - accéder à son rayon et à ses coordonnées
+
+        - On peut créer un Cercle de plusieurs manières :
+
+            - Sans fixer la valeur de ses caractéristiques                                          (constructeur par défaut)
+            - En fixant la valeur à un ou plusieurs caractéristiques                                (constructeur par paramètres)
+            - En créant un clone d'un autre Cercle                                                  (constructeur par recopie)
+
+            (Selon la situation, on peut en proposer une ou plusieurs)
+
+        - On peut supprimer un Cercle :                                                             (destructeur)
+
+            - Comme le Cercle ne possède pas de pointeur, il s'en charge tout seul et il n'est
+                pas nécessaire de le définir sauf si on a un compteur du nombre total de Cercles
+                créés.
+
+----------------------------------------------------------------------------------------------------
+
+    > La surcharge d'opérateurs permet de traîter un objet comme un si c'était un type simple.      (SURCHARGE D'OPÉRATEURS -> sucre syntaxique pour l'appel de fonctions)
+        C'est plus agréable d'écrire (et plus compréhensible) :
+
+            SANS :      complex_3.add(complex_1, complex_2);
+            AVEC :      complex_3 = complex_1 + complex_2;
+
+            SANS :      cout << complex_1.getReal() << " + " << complex_1.getImaginary() << endl;
+            AVEC :      cout << complex_1 << endl;
+
+    > Lorsqu'on a plusieurs objets, il se peut qu'ils aient besoin d'interagir ensemble :
+
+        > Lorsqu'on veut créer un Cylindre, on sait qu'il est composé d'une base circulaire et      (CLASSE AMIE)
+            et qu'il a une certaine grandeur. On en déduit qu'on pourra utiliser la classe
+            Cercle, qui possède déjà les attributs et fonctions nécessaires pour calculer
+            l'aire de la base du Cylindre. Si les attributs de la classe Cercle sont privées,
+            en utilisant le "mode ami" on peut y accéder sans avoir besoin d'utiliser d'accesseur
+            ou de mutateurs. La même chose est valable pour les fonctions privées.
+
+        > On peut tout à fait imaginer qu'une fonction ait besoin d'accéder à des membres privées   (FONCTION AMIE)
+            d'une classe, avec le "mode ami", la classe lui donne les accès nécessaires.
+
+        > Un objet peut être la spécialisation d'un autre objet. Par exemple, le mage est un        (NOTION D'HÉRITAGE)
+            personnage spécialisé tout comme le chasseur qui est aussi un personnage spécialisé.
+            Ils ont chacun des attributs et des fonctions en commun, mais quand ils se spécialisent,
+            ils utilisent des attributs et des fonctions en plus.
+
+            PERSONNAGE                      MAGE : PERSONNAGE           CHASSEUR : PERSONNAGE
+            ----------                      ----                        --------
+            - nom                           -                           -
+            - niveau                        -                           -
+            - points de vie                 -                           -
+            - points d'expérience           -                           -
+                                            - mana                      - nombre de flèches
+                                            - liste de sorts            - arc
+
+            - créer personnage              -                           -
+            - supprimer personnage          -                           -
+
+            - marcher                       -                           -
+            - attaquer                      - lancer un sort            - tirer à l'arc
+            - esquiver                      -                           -
+                                                                        - déplacement furtif
+
+            > Une fonction de classe peut être virtuelle : ça signifie qu'il faut la redéfinir      (OVERRIDE)
+                dans la classe enfant.
+
+            > Si une classe possède une fonction virtuelle pure, on ne peut pas l'appeler           (VIRTUAL)
+                en dehors des classes qui en héritent.

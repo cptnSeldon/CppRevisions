@@ -1,0 +1,50 @@
+-------------------------------------------------------
+.                           C++                       .
+-------------------------------------------------------
+
+> Transtypage
+
+    > Disclaimer : en principe, une conversion explicite de type n'est jamais souhaitable ! Préférer l'utilisation des templates !
+
+    > il existe plusieurs moyens de changer le type d'une variable quelconque selon la situation :
+
+        > static_cast<T>(e) est utilisé dans les cas suivants :
+
+            - lorsqu'on veut clarifier les conversions qui le sont de manière implicite;
+            - lorsqu'on veut faire des conversions dites "naturelles" -> float vers int;
+            - lorsqu'on veut lever une ambiguïté;
+            - lorsqu'on veut faire une conversion risquée parents à enfants (donc, on ne prend en compte
+              que s'il n'y a pas d'erreur).
+
+            => relativement rapide et sécuritaire
+            => se déroule au moment de la compilation en principe
+
+        > dynamic_cast<T>(e) est utilisé dans les cas suivants :
+
+            - lorsqu'on veut faire des conversions entre pointeurs/références à condition qu'ils soient apparentés
+              (donc : un parent, enfant, etc en commun) et que la classe source ait au moins une méthode polymorphique.
+
+            => relativement sécuritaire, mais à utiliser avec une certaine prudence !
+            => ne pas utiliser dans un sytème temps réel.
+            => se déroule à l'exécution.
+
+        > reinterpret_cast<T>(e)
+
+            - elle produit une valeur temporaire, qui doit être reconvertie pour être utilisée proprement;
+            - à utiliser que sur des pointeurs;
+            - les résultats ne sont pas portables.
+
+            => il faut l'utiliser avec prudence, mais c'est pas vraiment recommandé.
+            => est utilisée quand on manipule des abstractions de très bas niveau (services de l'OS par exemple).
+
+        > const_cast<T>(e)
+
+            - permet d'ajouter ou de se débarrasser temporairement du caractère constant ou volatile d'une variable,
+              dans le cas où la variable de base n'est pas correctement caractérisée.
+
+            => à utiliser prudemment !
+
+----------------------------------------------------------------------------------------------------
+
+Liens : - 1. https://h-deb.clg.qc.ca/Sujets/Divers--cplusplus/CPP--Casts-ISO.html
+----------------------------------------------------------------------------------------------------

@@ -1,0 +1,84 @@
+-------------------------------------------------------
+.                           C++                       .
+-------------------------------------------------------
+
+> Streams   => #include <fstream>
+
+    > ifstream  : Input File Stream
+
+        > LECTURE
+
+            => manière standard :
+
+                ifstream inputFile;                 //création du flux
+                inputFile.open(filename, mode);     //ouverture du fichier  -> bonne pratique : tester si l'ouverture s'est faite correctement !
+
+                //code : utilisation de <<, read(), get(), getline() dans le but d'extraire quelque chose du fichier
+
+                inputFile.close();
+
+            => on peut aussi combiner les deux comme ça :
+
+                ifstream inputFile(filename, mode);
+
+    > ofstream  : Output File Stream
+
+        > ÉCRITURE
+
+            => manière standard :
+
+                ofstream outputFile;                    //création du flux
+                outputFile.open(filename, mode);        //ouverture du fichier  -> bonne pratique : tester si l'ouverture s'est faite correctement !
+
+                //code : utilisation de >>, write(), put() dans le but d'insérer quelque chose dans le fichier
+
+                outputFile.close();                     //fermeture du fichier
+
+            => on peut aussi combiner les deux comme ça :
+
+                ofstream outputFile(filename, mode);
+
+
+            > si le fichier n'existe pas, il sera créé automatiquement => sauf si on rajoute ios::nocreate ou ios::noreplace
+
+    > fstream   : File Stream (bidirectionnel)
+
+        > LECTURE   : utilise les opérations de ifstream
+
+        > ÉCRITURE  : utilise les opérations de voir ofstream
+
+
+    > SIGNATURES
+
+        > void open (const char* filename, ios::openmode mode = ios::in | ios::out);
+
+        > void close();                                                                 //ferme le fichier, flush du buffer, déconnexion du stream
+
+        > bool is_open();                                                               //utile si on veut vérifier que le fichier est ouvert ou pas
+
+    > MODES
+
+        > ios::in       :   ouvre le fichier en mode lecture
+
+        > ios::out      :   ouvre le fichier en mode écriture
+
+        > ios::app      :   ouvre le fichier et rajoute le nouveau contenu à la fin du contenu existant
+
+        > ios::trunc    :   ouvre le fichier remplacement du contenu existant par le nouveau contenu (si le fichier existe)
+
+        > ios::binary   :   traitement de fichier binaire
+
+        > ios::ate      :   ouvre le fichier et se positionne à la fin du contenu -> écriture
+
+        > ios::nocreate :   ouvre le fichier seulement s'il existe
+
+        > ios::noreplace:   ouvre le fichier seulement s'il n'existe pas (sauf si ios::ate ou ios:app est utilisé)
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+Links : - https://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp10_IO.html
+        - https://books.google.ch/books?id=2oTAb3iznuUC&pg=PA278&lpg=PA278&dq=qu%27est-ce+que+ios::ate+définition&source=bl&ots=q1vSj_lIZO&sig=ACfU3U3FcU2i7xSDlud1CRjVZEcEhG9NkQ&hl=en&sa=X&ved=2ahUKEwi74KqNj-rpAhVC66QKHRxdDfoQ6AEwAHoECAgQAQ#v=onepage&q=qu'est-ce%20que%20ios%3A%3Aate%20définition&f=false
+----------------------------------------------------------------------------------------------------

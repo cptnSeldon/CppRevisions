@@ -1,0 +1,34 @@
+-------------------------------------------------------
+.                           C++                       .
+-------------------------------------------------------
+
+> Exceptions
+
+    > try, throw, catch
+
+        > toujours aller de l'erreur la plus spécifique à la moins spécifique.
+
+Exemple :
+
+
+    try
+    {
+        fonction(int a);
+    }
+    catch([classe d'exception]& e)          //plus spécifique
+    {
+        cout << e.what() << endl;           //renvoie un string avec les infos de l'erreur
+    }
+    catch(...)                              //moins spécifique -> par défaut
+    {
+        cout << "Erreur inconnue" << endl;
+    }
+
+
+int function(int a)
+{
+    if(condition)
+    {
+        throw [quelque chose];
+    }
+}
